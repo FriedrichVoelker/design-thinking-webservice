@@ -1,0 +1,107 @@
+{
+	"debug":{
+		"url": "/debug",
+		"return": {"Debug": "success"}
+	},
+	"status": {
+		"url": "/status",
+		"return": {"message": "API is up and running"}
+	},
+	"preorder": {
+		"url": "/preorder",
+		"function": {
+			"filepath": "./api/controllers/orderController.js",
+			"function": "preorder",
+			"needParams": true
+		}
+	},
+	"getOrders": {
+		"url": "/orders/get",
+		"function": {
+			"filepath": "./api/controllers/orderController.js",
+			"function": "getOrders",
+			"needParams": false
+		},
+		"methods": ["GET"]
+	},
+	"checkAuth": {
+		"url": "/checkauth",
+		"function": {
+			"filepath": "./api/controllers/authController.js",
+			"function": "checkAuth",
+			"needsAuth": false
+		}
+	},
+	"inform": {
+		"url": "/inform",
+		"function": {
+			"filepath": "./api/controllers/authController.js",
+			"function": "inform",
+			"needsAuth": true
+		}
+	},
+	"getDebugToken": {
+		"url": "/debugtoken",
+		"function": {
+			"filepath": "./api/controllers/authController.js",
+			"function": "getDebugToken",
+			"needsAuth": false
+		}
+	},
+	"login": {
+		"url": "/login",
+		"function": {
+			"filepath": "./api/controllers/authController.js",
+			"function": "login",
+			"needsAuth": false,
+			"needParams": true
+		}
+	},
+	"logout": {
+		"url": "/logout",
+		"function": {
+			"filepath": "./api/controllers/authController.js",
+			"function": "logout",
+			"needsAuth": true
+		}
+	},
+	"allUsers": {
+		"url": "/users/get",
+		"function": {
+			"filepath": "./api/controllers/userController.js",
+			"function": "getUsers",
+			"needsAuth": true
+		},
+		"methods": ["GET"] 
+	},
+	"deleteUser": {
+		"url": "/users/delete",
+		"function": {
+			"filepath": "./api/controllers/userController.js",
+			"function": "deleteUser",
+			"needsAuth": true,
+			"needParams": true
+		},
+		"methods": ["POST"] 
+	},
+	"acceptOrder": {
+		"url": "/orders/accept",
+		"function": {
+			"filepath": "./api/controllers/orderController.js",
+			"function": "acceptOrder",
+			"needsAuth": true,
+			"needParams": true
+		},
+		"methods": ["POST"] 
+	},
+	"deleteOrder": {
+		"url": "/orders/delete",
+		"function": {
+			"filepath": "./api/controllers/orderController.js",
+			"function": "deleteOrder",
+			"needsAuth": true,
+			"needParams": true
+		},
+		"methods": ["POST"] 
+	}
+}

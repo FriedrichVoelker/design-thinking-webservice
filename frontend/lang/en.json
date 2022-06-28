@@ -1,0 +1,128 @@
+{
+	"title": "Website Title",
+	"navbar": {
+		"home": "Home",
+		"about": "About",
+		"project": "Project",
+		"order": "Order",
+		"controlpanel":"Control Panel",
+		"orders": "Orders",
+		"logout": "Logout",
+		"users": "Users",
+		"settings": "Settings"
+	},
+	"footer": {
+		"companyname": "Companyname: Coming Soon",
+		"imprint": "Imprint",
+		"privacy": "Privacy Policy",
+		"contact": "Contact",
+		"login": "Login",
+		"controlpanel": "Control Panel",
+		"home": "Home"
+	},
+	"views": {
+		"home": {
+			"debug-h1": "Test"
+		},
+		"about": {
+			"header": "About",
+			"meetTheTeam": "Meet the Team",
+			"team": {
+				"matteo": "Certified Ehrenmann",
+				"lennart": "Electro Brain",
+				"friedrich": "Professional Bug Creator",
+				"ardian": "Holds Luna"
+			}
+		},
+		"contact": {
+			"header": "Stay in Touch",
+			"description": "Shoot us a message"
+		},
+		"imprint": {
+			"header": "Imprint",
+			"description": ""
+		},
+		"privacy": {
+			"header": "Privacy Policy",
+			"description": "",
+			"policy": "",
+			"declineCookiesLater": "Decline Cookies"
+		},
+		"404": {
+			"header": "404 Page not found",
+			"description": "Sorry, we can't find the page you requested. Are you sure it exists?"
+		},
+		"order": {
+			"header": "Order here",
+			"subheader": "Currently not in stock, but you can preorder",
+			"textheader": "Solar Power",
+			"text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ad corporis, quos libero modi nulla obcaecati architecto illo nemo id fugit labore veniam similique dicta odit possimus sint unde? Officiis similique quo sed laudantium sint nobis reprehenderit hic quaerat at aperiam maiores est ipsam dicta pariatur, tenetur velit veniam aut quia quasi aliquam ad. Ducimus deleniti, odit molestiae maiores eaque expedita? In alias ut assumenda numquam soluta aspernatur maxime cumque dignissimos? Optio quae adipisci facere possimus aspernatur, ipsum aliquam totam inventore sed beatae officiis architecto iure laboriosam alias perspiciatis expedita deleniti tenetur deserunt reprehenderit maxime voluptates. Ea error eligendi reprehenderit?"
+			,"buy": "Preorder",
+			"amount": "Amount",
+			"captions": {
+				"one": "Black dog",
+				"two": "Two dogs",
+				"three": "Pug"
+			}
+		},
+		"checkout": {
+			"header": "Checkout",
+			"description": "",
+			"formheader": "",
+			"success": "Successfully Preordered"
+		},
+		"login": {
+			"header": "Login",
+			"description": "Please login"
+		}
+	},
+	"language": {
+		"german": "German",
+		"english": "English"
+	},
+	"cookies": {
+		"header": "We like cookies, do you too?",
+		"warning": "This site uses cookies to enhance your User Experience",
+		"seeusage": "See their usage in our",
+		"understand": "I like cookies",
+		"decline": "I dont like cookies",
+		"declined": "Cookies have been declined"
+	},
+	"form": {
+		"name": "Name",
+		"email": "E-Mail",
+		"message": "Message",
+		"reason": "Reason",
+		"reasons": {
+			"info": "Information",
+			"request": "Request",
+			"complaint": "Complaint",
+			"other": "Other"
+		},
+		"reset": "Reset",
+		"submit": "Submit",
+		"amount": "Amount",
+		"password": "Password",
+		"login": "Login"
+	},
+	"tables": {
+		"name": "Name",
+		"email": "E-Mail",
+		"created": "Created at",
+		"actions": "Actions",
+		"amount": "Amount"
+	},
+	"errors": {
+		"checkout": "Name, Email and amount must be set",
+		"noValidEmail": "No valid Email",
+		"login": {
+			"missing":"Invalid Data",
+			"wrong": "Invalid Credentials"
+		},
+		"delete_user": "User could not be deleted",
+		"nousers": "No users found",
+		"noorders": "No orders found",
+		"delete_order": "Order could not be deleted",
+		"accept_order": "Order could not be accepted"
+	}
+}

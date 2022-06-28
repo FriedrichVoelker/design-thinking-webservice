@@ -1,0 +1,71 @@
+{
+	"home": {
+		"filepath": "frontend/views/index.html",
+		"url": "/",
+		"aliases": ["/home"] 
+	},
+	"about": {
+		"filepath": "frontend/views/about.html",
+		"url": "/about",
+		"aliases": []
+	},
+	"contact": {
+		"filepath": "frontend/views/contact.html",
+		"url": "/contact"
+	},
+	"imprint": {
+		"filepath": "frontend/views/imprint.html",
+		"url": "/imprint",
+		"aliases": ["/impressum"]
+	},
+	"privacy": {
+		"filepath": "frontend/views/privacy.html",
+		"url": "/privacy",
+		"aliases": ["/datenschutz", "/datenschutzerklärung"]
+	},
+	"order": {
+		"filepath": "frontend/views/order.html",
+		"url": "/order"
+	},
+	"checkout": {
+		"filepath": "frontend/views/checkout.html",
+		"url": "/checkout"
+	},
+	"project": {
+		"filepath": "frontend/views/project.html",
+		"url": "/project"
+	},
+	"login": {
+		"filepath": "frontend/views/login.html",
+		"url": "/login",
+		"needsAuth": true
+	},
+	"controlpanel": {
+		"filepath": "frontend/views/cp/index.html",
+		"url": "/controlpanel",
+		"needsAuth": true,
+		"isAdminOnly": true,
+		"aliases": ["/cp"]
+	},
+	"cpOrders": {
+		"filepath": "frontend/views/cp/orders.html",
+		"url": "/controlpanel/orders",
+		"needsAuth": true,
+		"isAdminOnly": true,
+		"aliases": ["/cp/orders"]
+	},
+	"cpUsers": {
+		"filepath": "frontend/views/cp/users.html",
+		"url": "/controlpanel/users",
+		"needsAuth": true,
+		"isAdminOnly": true,
+		"aliases": ["/cp/users"]
+	},
+	"cpSettings": {
+		"filepath": "frontend/views/cp/settings.html",
+		"url": "/controlpanel/settings",
+		"needsAuth": true,
+		"isAdminOnly": true,
+		"aliases": ["/cp/settings"]
+	}
+}

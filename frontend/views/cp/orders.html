@@ -1,0 +1,170 @@
+<main>
+	<h1 translate="views.orders.header"></h1>
+	<p translate="views.orders.description"></p>
+	<hr>
+	<ul class="responsive-table" id="table-header">
+		<li class="table-header" id="">
+
+			<div class="col col-1" translate="tables.name"></div>
+			<div class="col col-3" translate="tables.email"></div>
+			<div class="col col-3" translate="tables.amount"></div>
+			<div class="col col-4" translate="tables.created"></div>
+			<div class="col col-4" translate="tables.actions"></div>
+		</li>
+	</ul>
+	<br>
+</main>
+
+<script>
+	let token = ""
+  async function render() {
+
+	let contentRows = document.getElementsByClassName("content-row");
+	while (contentRows.length > 0) {
+		contentRows[0].remove();
+	}
+
+    // let token = "";
+    if (getCookie("cookiesAccepted") == "true") {
+      token = getCookie("token");
+    } else {
+      token = sessionStorage.getItem("token");
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "/api/orders/get");
+
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer " + token);
+
+    xhr.onload = async () => {
+
+		let resp = JSON.parse(xhr.responseText);
+
+		if(resp.data.result.length == 0){
+			
+			let errorLi = document.createElement("li")
+			errorLi.classList.add("table-row")
+
+			let errorMsg = await translateSingle("errors.noorders")
+
+			errorLi.innerHTML = `<div class="table-error"> ${errorMsg} </div>`
+			document.getElementById("table-header").appendChild(errorLi);
+		
+			
+			return;
+		}
+
+		resp.data.result.forEach(order => {
+			let row = document.createElement("li");
+			row.classList.add("table-row", "content-row");
+
+			if(order.accepted){
+				row.classList.add("accepted");
+			}
+
+			let name = document.createElement("div");
+			name.classList.add("col", "col-1");
+			name.innerHTML = order.name;
+			let email = document.createElement("div");
+			email.classList.add("col", "col-3");
+			email.innerHTML = order.email;
+			let amount = document.createElement("div");
+			amount.classList.add("col", "col-3");
+			amount.innerHTML = order.amount;
+			let date = document.createElement("div");
+			date.classList.add("col", "col-3");
+			date.innerHTML = new Date(order.date).toLocaleString();
+
+			let actions = document.createElement("div")
+			actions.classList.add("col", "col-4");
+
+			if(!order.accepted){
+				let acceptBtn = document.createElement("button");
+				acceptBtn.classList.add("btn", "success", "fluid");
+				acceptBtn.innerHTML = "<i class='fa fa-check'></i>";
+				acceptBtn.setAttribute("onclick", "acceptOrder('" + order.id + "')");
+				actions.appendChild(acceptBtn);
+			}
+			
+			let deleteBtn = document.createElement("button");
+
+
+			deleteBtn.classList.add("btn", "danger", "fluid");
+			deleteBtn.innerHTML = "<i class='fa fa-trash'></i>";
+
+			// Add click event to delete button
+			deleteBtn.setAttribute("onclick", "deleteOrder('" + order.id + "')");
+			actions.appendChild(deleteBtn);
+
+
+			row.appendChild(name);
+			row.appendChild(email);
+			row.appendChild(amount);
+			row.appendChild(date);
+			row.appendChild(actions);
+			document.getElementById("table-header").appendChild(row);
+			resizeScreen()
+		})
+			
+		setTimeout(() => {
+			resizeScreen()
+		}, 3000);
+
+	};
+	xhr.send();
+  }
+  render();
+
+
+  async function deleteOrder(id){
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "/api/orders/delete");
+
+				xhr.setRequestHeader("Accept", "application/json");
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.setRequestHeader("Authorization", "Bearer " + token);
+
+				xhr.onload = async () => {
+					console.log(xhr.responseText);
+					let resp = JSON.parse(xhr.responseText);
+
+					if(resp.error){
+						alert(await translateSingle("errors.delete_order"));
+						return;
+					}
+
+					if(resp.message == "success"){
+						render()
+					}
+				}
+				xhr.send(JSON.stringify({id: id}));
+  }
+
+
+  async function acceptOrder(id){
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "/api/orders/accept");
+
+				xhr.setRequestHeader("Accept", "application/json");
+				xhr.setRequestHeader("Content-Type", "application/json");
+				xhr.setRequestHeader("Authorization", "Bearer " + token);
+
+				xhr.onload = async () => {
+					console.log(xhr.responseText);
+					let resp = JSON.parse(xhr.responseText);
+
+					if(resp.error){
+						alert(await translateSingle("errors.accept_order"));
+						return;
+					}
+
+					if(resp.message == "success"){
+						render()
+					}
+				}
+				xhr.send(JSON.stringify({id: id}));
+  }
+
+</script>

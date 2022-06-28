@@ -1,0 +1,79 @@
+{
+	"title": "Website Title",
+	"navbar": {
+		"home": "Start",
+		"about": "Über",
+		"project": "Projekt",
+		"order": "Bestellen"
+	},
+	"footer": {
+		"companyname": "Kommt noch",
+		"imprint": "Impressum",
+		"privacy": "Datenschutzerklärung",
+		"contact": "Kontakt",
+		"controlpanel": "Controlpanel"
+	},
+	"views": {
+		"home": {
+			"debug-h1": "Test"
+		},
+		"about": {
+			"header": "Über",
+			"meetTheTeam": "Triff das Team",
+			"team": {
+				"matteo": "Zertifizierter Ehrenmann",
+				"lennart": "Arduino Genie",
+				"friedrich": "Die Bug Maschine",
+				"ardian": "Holds Luna"
+			}
+		},
+		"404": {
+			"header": "404 Seite nicht gefunden",
+			"description": "Entschuldigung, wir konnten die von dir angefragte Seite nicht finden. Bist du sicher, dass sie existiert?"
+		},
+		"order": {
+			"header": "Hier bestellen",
+			"subheader": "Derzeitig nur vorbestellbar",
+			"textheader": "Solar Power",
+			"text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ad corporis, quos libero modi nulla obcaecati architecto illo nemo id fugit labore veniam similique dicta odit possimus sint unde? Officiis similique quo sed laudantium sint nobis reprehenderit hic quaerat at aperiam maiores est ipsam dicta pariatur, tenetur velit veniam aut quia quasi aliquam ad. Ducimus deleniti, odit molestiae maiores eaque expedita? In alias ut assumenda numquam soluta aspernatur maxime cumque dignissimos? Optio quae adipisci facere possimus aspernatur, ipsum aliquam totam inventore sed beatae officiis architecto iure laboriosam alias perspiciatis expedita deleniti tenetur deserunt reprehenderit maxime voluptates. Ea error eligendi reprehenderit?"
+			,"buy": "Kaufen",
+			"amount": "Anzahl",
+			"captions": {
+				"one": "Schwarzer Hund",
+				"two": "Zwei Hunde",
+				"three": "Mops"
+			}
+		},
+		"checkout": {
+			"formheader": "Bestellung",
+			"header": "Bestellung",
+			"description": ""
+		}
+	},
+	"language": {
+		"german": "Deutsch",
+		"english": "Englisch"
+	},
+	"cookies": {
+		"header": "Wir mögen Cookies, du auch?",
+		"warning": "Diese Seite benutzt Cookies um die Nutzererfahrung zu verbessen",
+		"seeusage": "Sie den Nutzen in unserer",
+		"understand": "Ich mag Cookies",
+		"decline": "Ich mag keine Cookies"
+	},
+	"form": {
+		"name": "Name",
+		"email": "E-Mail",
+		"message": "Nachricht",
+		"reason": "Grund",
+		"reasons": {
+			"info": "Informationen",
+			"request": "Anfrage",
+			"complaint": "Beschwerde",
+			"other": "Sonstiges"
+		},
+		"reset": "Zurücksetzen",
+		"submit": "Absenden",
+		"amount":"Anzahl"
+	}
+}

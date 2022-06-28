@@ -1,0 +1,21 @@
+CREATE DATABASE IF NOT EXISTS "solar";
+
+CREATE TABLE IF NOT EXISTS `orders` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`email` VARCHAR(255) NULL DEFAULT NULL,
+	`amount` INT NULL,
+	`date` DATETIME NULL,
+	'accepted' TINYINT NULL,
+	PRIMARY KEY (`id`),
+)
+COLLATE='utf8mb4_general_ci';
+
+
+CREATE TABLE IF NOT EXISTS `users` (
+	`email` VARCHAR(255) NOT NULL,
+	`name` VARCHAR(255) NULL DEFAULT '',
+	`password` VARCHAR(255) NOT NULL,
+	`created_at` DATETIME NULL,
+	PRIMARY KEY (`email`)
+)
+COLLATE='utf8mb4_general_ci';

@@ -1,0 +1,8 @@
+{
+	"mails": {
+		"preorder": {
+			"text":"Hello %name%,<br><br>we are confirming, that we got your preorder of <i>%amount%</i> NAME COMING SOON<br><br>Greetings :)",
+			"title": "Preorder"
+		}
+	}
+}

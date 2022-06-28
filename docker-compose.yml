@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    restart: always
+  mariadb:
+        image: mariadb:latest
+        command: --init-file /data/application/init.sql
+        volumes:
+            - ./db/init.sql:/data/application/init.sql
+        environment:
+            MYSQL_ROOT_USER: ${DB_USER}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
