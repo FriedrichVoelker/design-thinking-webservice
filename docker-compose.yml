@@ -3,7 +3,7 @@ services:
     build: .
     restart: always
     ports:
-      - "50047:50047"
+      - "50057:50057"
   mariadb:
         image: mariadb:latest
         command: --init-file /data/application/init.sql

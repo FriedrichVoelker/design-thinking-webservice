@@ -6,6 +6,6 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-EXPOSE 50047
+EXPOSE 50057
 
 CMD ["node", "index.js"]
