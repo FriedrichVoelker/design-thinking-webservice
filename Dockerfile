@@ -1,7 +1,7 @@
-FROM node:latest
+FROM node:lts-alpine
 WORKDIR /app/solar
 
-COPY package*json .
+COPY package*.json ./
 
 RUN npm install
 COPY . .
