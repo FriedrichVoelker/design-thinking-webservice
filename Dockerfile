@@ -1,4 +1,4 @@
-FROM node:lastest-alpine
+FROM node:latest-alpine
 WORKDIR /app/solar
 
 COPY package*json .
