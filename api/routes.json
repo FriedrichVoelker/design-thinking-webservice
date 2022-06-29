@@ -103,5 +103,24 @@
 			"needParams": true
 		},
 		"methods": ["POST"] 
+	},
+	"fakeMail": {
+		"url": "/mail/fake",
+		"function": {
+			"filepath": "./api/controllers/debugController.js",
+			"function": "debugMail",
+			"needParams": true
+		},
+		"methods": ["POST"] 
+	},
+	"settings": {
+		"url": "/settings",
+		"function": {
+			"filepath": "./api/controllers/userController.js",
+			"function": "settings",
+			"needParams": true,
+			"needsAuth": true
+		},
+		"methods": ["POST"]
 	}
 }

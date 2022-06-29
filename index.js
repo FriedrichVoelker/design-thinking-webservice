@@ -67,6 +67,7 @@ const requestListener = function (req, res) {
           let data = [];
           if (route.function.needParams) {
             data.body = await getBodyData(req);
+            // console.log(data.body)
           }
 
           if (route.function.needsAuth) {
@@ -196,9 +197,10 @@ console.log("Running on http://localhost:" + PORT);
 function getBodyData(req) {
   return new Promise((resolve, reject) => {
     try {
-      let data = [];
+      let data = "";
       req.on("data", (chunk) => {
-        data.push(chunk);
+        // data.push(chunk);
+        data += chunk.toString()
       });
       req.on("end", () => {
         resolve(JSON.parse(data));

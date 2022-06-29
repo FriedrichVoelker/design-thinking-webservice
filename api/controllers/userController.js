@@ -24,13 +24,21 @@ module.exports = class API{
 	async settings(data){
 
 		let decoded = await new AuthUtil().decodeToken(data.auth)
-		data.body.email = decoded.email
+		data.body.email = decoded.decoded.data.email
 
 		let resp = await new UserUtil().settings(data.body);
+		console.log(resp)
 		if(resp.error){
 			return {status: 500, message: {message: "Error",error: resp.error}}
 		}
-		return {status: 200, message: {message: "Success",data: resp}}
+
+		let token = await new AuthUtil().encodeToken(resp.result);
+		if(token.error){
+			return {status: 500, message: {message: "Error",error: token.error}}
+		}
+		return {status: 200, message: {message: "success",token: token.result}}
 	}
+
+
 
 }

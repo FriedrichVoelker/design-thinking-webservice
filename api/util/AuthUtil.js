@@ -8,16 +8,6 @@ const bcrypt = require("bcrypt");
 
 const saltRounds = 10;
 
-const users = [
-	{
-		id: 1,
-		email: "test@mail.de",
-		name: "admin",
-		password: "admin",
-		role: "admin",
-	}
-]
-
 module.exports = class AuthUtil {
 	
 	checkAuth(data){
@@ -66,6 +56,16 @@ module.exports = class AuthUtil {
 		})
 	}
 
+	encodeToken(data){	
+		return new Promise((resolve, reject) => {
+			try{
+				resolve({result: jwt.sign({data}, secret, {expiresIn: "1d"})});
+			}catch(e){
+				resolve({error: e})
+			}
+		})
+	}
+
 	login(data){
 		return new Promise(async (resolve, reject) => {
 			let email = data.email;
@@ -76,17 +76,19 @@ module.exports = class AuthUtil {
 			}
 
 			const user = await new DBUtil().query("SELECT * FROM users WHERE email = ?", [email]);
-			if(!user){
+			if(user.length == 0){
                 return resolve({error: "error Wrong Password"});
 			}
+
+			console.log(user)
 
 			if (!bcrypt.compareSync(data.password, user[0].password)){
                 return resolve({error: "error Wrong Password"});
 			}
 				let userData = {
-					name: users[0].name,
-					email: users[0].email,
-					created: users[0].created_at,
+					name: user[0].name,
+					email: user[0].email,
+					created: user[0].created_at,
 				}
 
 				resolve({token: jwt.sign({data: userData}, secret, {expiresIn: "1d"}), user: userData})

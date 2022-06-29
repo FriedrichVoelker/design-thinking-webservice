@@ -32,4 +32,34 @@ module.exports = class MailUtil {
 		})
 	}
 
+	sendFakeMail(recepient){
+		return new Promise((resolve, reject) => {
+			try{
+				const transporter = nodemailer.createTransport({
+					service: 'gmail',
+					auth: {
+						user: "mail.thegreatshop@gmail.com",
+						// pass: "iCanHazMails"
+						pass: "ftnstptqsyntjmzk"
+					}
+				});
+				
+			const mailConfigurations = {
+				from: 'myveryvaliddomain@example.com',
+				to: recepient,
+				subject: "Definitiv kein fake",
+				html: "Hallo gib mir geld"
+			};
+			transporter.sendMail(mailConfigurations, function(error, info) {
+				if (error){
+					resolve({error: error})
+				}
+			});
+			resolve({message: "success"})
+			}catch(e){
+				resolve({error: e})
+			}
+		})
+	}
+
 }

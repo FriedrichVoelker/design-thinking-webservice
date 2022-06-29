@@ -20,24 +20,37 @@ module.exports = class DBUtil{
 		return new Promise((resolve, reject) => {
 			connection.connect(function(err) {
 				if (err) {
-					reject(err)
+					resolve(err)
 				}
 				resolve(connection)
 			});
 		})
 	}
+
+	async closeConnection(){
+		return new Promise((resolve, reject) => {
+			connection.end(function(err) {
+				if (err) {
+					resolve(err)
+				}
+				resolve(connection)
+			});
+		})
+	}
+
 	async query(query, params){
+		let self = this
 		return new Promise((resolve, reject) => {
 
 			if(connection == null){
 				this.createConnection()
 			}
-
 			connection.query(query, params, function (err, result) {
 				if (err) {
 					console.log(err)
-					reject(err)
+					resolve(err)
 				}
+				// self.closeConnection()
 				resolve(result)
 			});
 		})

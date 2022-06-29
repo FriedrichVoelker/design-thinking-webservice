@@ -3,7 +3,7 @@
   --lblue: rgb(45, 218, 224);
   --lighterblue: rgb(123, 251, 255);
   /* --headerFooterColor: rgb(107, 6, 114); */
-  --headerFooterColor: rgb(189, 74, 197);
+  --headerFooterColor: rgb(150, 144, 151);
 }
 
 body {
@@ -35,9 +35,14 @@ main {
 
 html {
   /* background-image: url("/statics/images/background.bmp"); */
-  /* background-image: url("https://wallup.net/wp-content/uploads/2016/01/230435-dog-animals-black_background.jpg"); */
+  /* background:linear-gradient(rgba(0, 0, 0, 0.3), rgba(252, 252, 252, 0.0)), url("https://www.teahub.io/photos/full/176-1762399_solar-panels-wallpaper-hd.jpg"); */
+  /* background:linear-gradient(rgba(0, 0, 0, 0.9), rgba(252, 252, 252, 0.0)), url("https://wallpapercave.com/wp/wp7234473.jpg"); */
+  background:linear-gradient(rgba(0, 0, 0, 0.39), rgba(252, 252, 252, 0.0)), url("https://wallpaperaccess.com/full/1663707.jpg");
+ 
+  
+  
   /* background-image: url("https://c1.wallpaperflare.com/preview/417/131/719/dog-idea-light-bulb-kangal.jpg"); */
-  background-image: url("/statics/images/dog-bg.png");
+  /* background-image: url("/statics/images/dog-bg.png"); */
   background-color: black;
   /* background-image: linear-gradient(to bottom, rgb(51, 28, 51), black);  */
   background-repeat: no-repeat;
@@ -47,6 +52,10 @@ html {
   background-position: center;
   background-size: cover;
   min-height: 100%;
+  /* -webkit-filter: brightness(0.6);
+  -moz-filter: brightness(0.6);
+  -o-filter: brightness(0.6);
+  -ms-filter: brightness(0.6); */
 }
 
 a {
@@ -146,6 +155,7 @@ nav {
 
 .topnav {
   margin-bottom: 2rem;
+  z-index: 1000;
 }
 
 nav > a {
@@ -278,16 +288,27 @@ nav > a {
 	max-width: 55%;
 	flex-basis: 40%;
   }
-
-  .order-image {
-	height: 100%;
-	width: 100%;
-	border: 2px dashed rgb(0, 221, 255);
+  .order-image-wrapper {
+    position: relative;
+    height: 30rem;
+    border: 2px dashed rgb(0, 221, 255);
   }
+  .order-image {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
 
   .image-slideshow-button{
 	top: 0;
-	/* height: 100%; */
 	margin-bottom: 50%;
   }
 

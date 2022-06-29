@@ -2,13 +2,13 @@ const UserUtil = require("../../UserUtil.js");
 
 const users = [
 	{
-		email: "admin@test.dev",
-		password: "admin",
+		email: "admin@solar.panels",
+		password: "admin@solar.panels",
 		name: "admin"
 	},
 	{
-		email: "user@test.dev",
-		password: "user",
+		email: "user@solar.panels",
+		password: "user@solar.panels",
 		name: "user"
 	},
 ];
