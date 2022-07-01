@@ -1,17 +1,47 @@
 newmtl Fantasy_28252d04-343b-4221-b772-c367b86112df
 Kd 0.675 0.302 0.318
 d 1.000
+newmtl Fantasy 1_432fe3df-489e-409f-950e-254648277edb
+Kd 0.600 0.565 0.565
+d 1.000
+newmtl Fantasy 5_2191161a-b79b-467c-bc1e-74e002122a94
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 9_03959d11-2a30-4b2e-998f-75f898166f66
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 11_566556db-48eb-460f-88f3-7cea97738bc4
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 12_bbe7c3a3-f84a-416a-9d45-10f46f9a981d
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 13_2e00b905-edfd-41a9-b6c6-6d2d8881f274
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 10_73930968-a9d6-4e06-84ca-4161a08fc1cb
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 14_fd648544-a715-4d19-9ae1-cb89c15ef906
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 15_da49da38-1704-42c8-a5e2-fdee3603f638
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 16_9e195551-5854-4c1c-b8d5-14c203f23b0e
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 6_43b82c1b-c5f2-4aa6-b9b6-1f6e2c088e30
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 7_3b0de3b0-b89e-47ba-992b-02cd4a645a31
+Kd 0.169 0.157 0.157
+d 1.000
+newmtl Fantasy 8_4aff9ef7-b5de-477a-a75e-772732a98126
+Kd 0.169 0.157 0.157
+d 1.000
 newmtl Ballad_f4505ae4-5866-47ea-a088-61ecc860e475
 Kd 0.188 0.294 0.396
-d 1.000
-newmtl Hidden Paradise_2bb6b2b1-9297-4593-9689-c3ddb61812ca
-Kd 0.678 0.298 0.318
-d 1.000
-newmtl Hidden Paradise 1_8e172325-10f4-45a2-845b-a1aa460b667f
-Kd 0.675 0.302 0.318
-d 1.000
-newmtl Fantasy 1_d3c7d264-aaba-4e6b-8e69-3bae4c27762e
-Kd 0.675 0.302 0.318
 d 1.000
 newmtl Dust Storm_5fd70ebe-3b45-43a3-9f80-ddbb64ed5b8a
 Kd 0.675 0.302 0.318
@@ -89,11 +119,26 @@ newmtl Romeo 2_cf70a460-07c2-4292-a6c2-5f51a1095aa6
 Kd 0.675 0.302 0.318
 d 1.000
 newmtl Lucky Day_bd32d475-658e-4cd8-9da7-eda301ed2f28
-Kd 0.675 0.302 0.318
+Kd 0.902 0.745 0.612
 d 1.000
 newmtl Gossip Soda_3fcc83b0-41fa-490a-ac49-dceb30b16951
-Kd 0.675 0.302 0.318
+Kd 0.902 0.745 0.612
 d 1.000
 newmtl Kimono_cc1bbe6f-02e4-4ae1-81f7-8a85bd98575d
-Kd 0.675 0.302 0.318
+Kd 0.902 0.745 0.612
+d 1.000
+newmtl Kimono 1_c80b581a-bc74-4073-8e50-baff009dc7f6
+Kd 0.902 0.745 0.612
+d 1.000
+newmtl Kimono 2_cd453bc7-d9fe-462b-89ed-0536f12cf738
+Kd 0.902 0.745 0.612
+d 1.000
+newmtl Kimono 3_7bc24a0c-4b30-49c6-bcb6-cbb8fd7e7525
+Kd 0.902 0.745 0.612
+d 1.000
+newmtl Kimono 4_186630e7-6333-4362-a279-2d91ecb53883
+Kd 0.902 0.745 0.612
+d 1.000
+newmtl Kimono 5_cd8f9886-380c-4064-9659-7f0727479cbb
+Kd 0.902 0.745 0.612
 d 1.000
