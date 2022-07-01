@@ -2,7 +2,8 @@
 VarSpeedServo myservo;
 VarSpeedServo servo2;
 
-int servospeed = 30;
+int servospeed = 20;
+int servo2speed = 30;
 
 void setup() {  
   Serial.begin(9600);
@@ -13,19 +14,14 @@ void setup() {
   myservo.attach(8);
   servo2.attach(7);
   myservo.slowmove(90, servospeed);
-//  servo2.slowmove(0, servospeed);
+  servo2.slowmove(90, servo2speed);
   delay(1000);
 }
 
 void loop() {
-  readVal(analogRead(A1), "A1");
-  readVal(analogRead(A2), "A2");
-  readVal(analogRead(A3), "A3");
-  readVal(analogRead(A4), "A4");
 
   checkHighest(analogRead(A1), analogRead(A2), analogRead(A3), analogRead(A4));
-  
-  delay(1000);
+  delay(3000);
 }
 
 int getmax(int x, int y){
@@ -47,12 +43,6 @@ void checkHighest(const int a1,const int a2,const int a3,const int a4){
   highest = getmax(firsthigh, secondhigh);
 
   highest == firsthigh ? second = secondhigh : second = firsthigh;
-  
-//  Serial.print("Highest: ");
-//  Serial.print(highest);
-//  Serial.print(" Second highest: ");
-//  Serial.println(second);
-
 
   int angle = 0;
   
@@ -64,13 +54,14 @@ void checkHighest(const int a1,const int a2,const int a3,const int a4){
   }
   Serial.println(diff);
   
+    servo2.slowmove(90, servo2speed);
   boolean a1turn = false;
   
   if(highest == a1){
       Serial.print("High Port: A1");
       angle = 90;
       if(second == a2){
-        
+        angle = 90;
       }else if(second == a3){
         angle = getRotation(a3, highest, 180, true);
         if(angle > 90){
@@ -85,13 +76,13 @@ void checkHighest(const int a1,const int a2,const int a3,const int a4){
       }
 
        a1turn = true;
-      
+       
   }else if(highest == a2){
       Serial.print("High Port: A2");
       angle = 90;
 
       if(second == a1){
-        
+        angle = 90;
       }else if(second == a3){
         angle = getRotation(a3, highest, 90, false);
         if(angle < 90){
@@ -103,13 +94,17 @@ void checkHighest(const int a1,const int a2,const int a3,const int a4){
           angle = 90;
         }
       }
-      
+      revRotation(a2,a1);
   }else if(highest == a3){
       Serial.print("High Port: A3");
        angle = 0;
 
       if(second == a1){
-        
+        angle = getRotation(highest, a1, 90, true);
+        angle -= diff;
+        if(angle > 90){
+          angle = 90;
+        }
       }else if(second == a2){
         angle = getRotation(highest, a2, 90, false);
         angle -= diff;
@@ -121,14 +116,20 @@ void checkHighest(const int a1,const int a2,const int a3,const int a4){
       }
 
 
-             
+            
+      revRotation(a3,a4); 
    }else if(highest == a4){
       Serial.print("High Port: A4");
       
       angle = 180;
 
       if(second == a1){
+        angle = getRotation(highest, a1, 180, true);
         
+        angle += diff;
+        if(angle < 90){
+          angle = 90;
+        }
       }else if(second == a2){
         angle = getRotation(highest, a2, 180, false);
         angle += diff;
@@ -138,21 +139,31 @@ void checkHighest(const int a1,const int a2,const int a3,const int a4){
       }else if(second == a3){
         angle = 90;
       }
+      revRotation(a4,a3); 
   }
 
   
 
   
   if(a1turn){
-    servo2.slowmove(90, 30);
-  }else{
-    servo2.slowmove(0, 30);
+
+    int serv2mv = (90 - intRevRotation(a1, a2));
+    if(serv2mv <= 70){
+      serv2mv = 70;
+    }
+    if(serv2mv >= 110){
+      serv2mv = 110;
+    }
+    
+    servo2.slowmove(serv2mv, servo2speed);
   }
 
   if(angle >= 180){
     angle = 180;
   }
-
+//  if(angle <= 60){
+//      angle = 60;
+//    }
   
   Serial.print(" Angle: ");
   Serial.println(angle);
@@ -167,13 +178,6 @@ int getRotation(int lowerDegree, int higherDegree, int degree, boolean flipme){
   if(lowerDegree == higherDegree){
     return degree - 45;
   }
-  
-  Serial.println("");
-  Serial.print(lowerDegree);
-  Serial.print(" ");
-  Serial.print(higherDegree);
-  Serial.print(" ");
-  Serial.println(degree);
 
   
   if(higherDegree > maxCap){
@@ -200,22 +204,55 @@ int getRotation(int lowerDegree, int higherDegree, int degree, boolean flipme){
   return tempvar;
 }
 
+int intRevRotation(int highpin, int mirrorpin){
+  if(mirrorpin < 30){
+    return 0;
+  }
+    int diff = highpin - mirrorpin;
+  
+  int perc = (((diff)/(highpin)) * 100);
+  
+  int rotation = (((perc)/90) * 100);
+  
+  if(rotation >= maxCap){
+    rotation= 90;
+  }
 
-int getfrRotation(int lower, int higher, int deg){
-  int lowdeg = deg - 90;
-
-  if(higher > lower){
-    int drei1 = higher / 100;
+    if(rotation < 110){
+    rotation = 110;
   }
   
-
-
+  if(rotation < 70){
+    rotation = 70;
+  }
   
+  return rotation;
 }
 
+void revRotation(int highpin, int mirrorpin){
+  if(mirrorpin < 30){
+    servo2.slowmove(110, servo2speed);
+    return;
+  }
 
-void readVal(int value, String port){
-     Serial.print("Value: ");
-     Serial.print(value);
-     Serial.println(" on Port: " + port);
+  int diff = highpin - mirrorpin;
+  
+  int perc = (((diff)/(highpin)) * 100);
+  
+  int rotation = (((perc)/90) * 100);
+  
+  if(rotation >= maxCap){
+    rotation= 90;
+  }
+
+  if(rotation < 110){
+    rotation = 110;
+  }
+  
+  if(rotation < 70){
+    rotation = 70;
+  }
+  
+  servo2.slowmove(rotation, servo2speed);
+    
 }
